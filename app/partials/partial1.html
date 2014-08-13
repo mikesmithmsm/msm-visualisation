@@ -1,0 +1,88 @@
+<div ng-show="myData.currentDeployment.deployment == null">
+  <div>
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th class="span5">Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="deployment in myData.deploymentList | filter:filterText">
+          <td class="text-left span5"><a ng-click="setCurrentDeployment(deployment.name)">{{deployment.name}}</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<div ng-show="myData.currentDeployment.deployment != null">
+  <a ng-click="showAll()">&laquo Back</a>
+  <h4>{{myData.currentDeployment.deployment.name}}
+
+  <tabset>
+
+    <tab heading="Servers" ng-if="myData.currentDeployment.servers.length > 0">
+      <div id="servers">
+        <table class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th class="span1">Name</th>
+              <th class="span1">State</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="server in myData.currentDeployment.servers">
+              <td class="text-left">{{server.name}}</td>
+              <td class="text-left"><span status-class="server.state">{{server.state}}</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </tab>
+
+    <tab heading="Server Arrays" ng-if="myData.currentDeployment.server_arrays.length > 0">
+      <div id="arrays">
+        <table class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th class="span1">Name</th>
+              <th class="span1">State</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="server in myData.currentDeployment.server_arrays">
+              <td class="text-left">{{server.name}}</td>
+              <td class="text-left"><span status-class="server.state">{{server.state}}</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </tab>
+
+    <tab heading="Instances" ng-if="myData.currentDeployment.instances.length > 0">
+      <div id="instances">
+        <table class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th class="span1">Name</th>
+              <th class="span1">Server Array</th>
+              <th class="span1">Private IP</th>
+              <th class="span1">State</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="instance in myData.currentDeployment.instances">
+              <td class="text-left">{{instance.name}}</td>
+              <td class="text-left">{{instance.server_array}}</td>
+              <td class="text-left">{{instance.private_ip}}</td>
+              <td class="text-left"><span status-class="instance.state">{{instance.state}}</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </tab>
+
+  </tabset>
+
+</div>
