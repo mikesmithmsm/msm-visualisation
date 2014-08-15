@@ -2,7 +2,7 @@
 
 angular.module('rsViz.services', ['ngResource'])
   .factory('RightScale', function($resource){
-    return $resource('https://us-3.rightscale.com/api/:path',
+    return $resource('/api/:path',
       {path:    '@path' }, {
         login:   {
           method: 'POST',
@@ -25,7 +25,7 @@ angular.module('rsViz.services', ['ngResource'])
     )
   })
   .factory('RightScaleDeployment', function($resource){
-    return $resource('https://us-3.rightscale.com/api/deployments/:deployment/:asset.json',
+    return $resource('/api/deployments/:deployment/:asset.json',
       {deployment:    '@deployment', asset:    '@asset' }, {
         servers:  {
           method: 'GET',
@@ -43,7 +43,7 @@ angular.module('rsViz.services', ['ngResource'])
     )
   })
   .factory('RightScaleServer', function($resource){
-    return $resource('https://us-3.rightscale.com/api/clouds/2/instances/:server.json',
+    return $resource('/api/clouds/2/instances/:server.json',
       {server:    '@server'}, {
         server:  {
           method: 'GET',
@@ -55,7 +55,7 @@ angular.module('rsViz.services', ['ngResource'])
     )
   })
   .factory('RightScaleServerArray', function($resource){
-    return $resource('https://us-3.rightscale.com/api/server_arrays/:server/current_instances.json',
+    return $resource('/api/server_arrays/:server/current_instances.json',
       {server:    '@server'}, {
         server:  {
           method: 'GET',

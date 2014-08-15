@@ -1,20 +1,92 @@
 0 info it worked if it ends with ok
-1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
-1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
-1 verbose cli   'install' ]
+1 verbose cli [ 'c:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'c:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   '-d' ]
 2 info using npm@1.4.21
 3 info using node@v0.10.30
-4 verbose node symlink C:\Program Files\nodejs\\node.exe
-5 error install Couldn't read dependencies
-6 error package.json ENOENT, open 'C:\workspace\msm-visualisation\package.json'
-6 error package.json This is most likely not a problem with npm itself.
-6 error package.json npm can't find a package.json file in your current directory.
-7 error System Windows_NT 6.1.7601
-8 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install"
-9 error cwd C:\workspace\msm-visualisation
-10 error node -v v0.10.30
-11 error npm -v 1.4.21
-12 error path C:\workspace\msm-visualisation\package.json
-13 error code ENOPACKAGEJSON
-14 error errno 34
-15 verbose exit [ 34, true ]
+4 verbose readDependencies using package.json deps
+5 verbose install where, deps [ 'c:\\workspace\\msm-visualisation',
+5 verbose install   [ 'http-proxy', 'connect', 'http' ] ]
+6 info preinstall msm-visualisation@0.0.1
+7 warn package.json connect@2.3.9 No README data
+8 verbose readDependencies using package.json deps
+9 verbose already installed skipping http-proxy@0.8.x c:\workspace\msm-visualisation
+10 verbose already installed skipping connect@2.3.x c:\workspace\msm-visualisation
+11 verbose cache add [ 'http@0.10.x', null ]
+12 verbose cache add name=undefined spec="http@0.10.x" args=["http@0.10.x",null]
+13 verbose parsed url { protocol: null,
+13 verbose parsed url   slashes: null,
+13 verbose parsed url   auth: null,
+13 verbose parsed url   host: null,
+13 verbose parsed url   port: null,
+13 verbose parsed url   hostname: null,
+13 verbose parsed url   hash: null,
+13 verbose parsed url   search: null,
+13 verbose parsed url   query: null,
+13 verbose parsed url   pathname: 'http@0.10.x',
+13 verbose parsed url   path: 'http@0.10.x',
+13 verbose parsed url   href: 'http@0.10.x' }
+14 verbose cache add name="http" spec="0.10.x" args=["http","0.10.x"]
+15 verbose parsed url { protocol: null,
+15 verbose parsed url   slashes: null,
+15 verbose parsed url   auth: null,
+15 verbose parsed url   host: null,
+15 verbose parsed url   port: null,
+15 verbose parsed url   hostname: null,
+15 verbose parsed url   hash: null,
+15 verbose parsed url   search: null,
+15 verbose parsed url   query: null,
+15 verbose parsed url   pathname: '0.10.x',
+15 verbose parsed url   path: '0.10.x',
+15 verbose parsed url   href: '0.10.x' }
+16 verbose addNamed [ 'http', '0.10.x' ]
+17 verbose addNamed [ null, '>=0.10.0-0 <0.11.0-0' ]
+18 silly lockFile d6200f3a-http-0-10-x http@0.10.x
+19 verbose lock http@0.10.x C:\Users\mike.smith\AppData\Roaming\npm-cache\d6200f3a-http-0-10-x.lock
+20 silly addNameRange { name: 'http', range: '>=0.10.0-0 <0.11.0-0', hasData: false }
+21 verbose request where is /http
+22 verbose request registry https://registry.npmjs.org/
+23 verbose request id bfc9a651a5e584ec
+24 verbose url raw /http
+25 verbose url resolving [ 'https://registry.npmjs.org/', './http' ]
+26 verbose url resolved https://registry.npmjs.org/http
+27 verbose request where is https://registry.npmjs.org/http
+28 info trying registry request attempt 1 at 08:23:56
+29 http GET https://registry.npmjs.org/http
+30 http 200 https://registry.npmjs.org/http
+31 silly registry.get cb [ 200,
+31 silly registry.get   { date: 'Fri, 15 Aug 2014 07:23:07 GMT',
+31 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+31 silly registry.get     etag: '"87FJDGHKUN8DS1XZTYO4FTQO9"',
+31 silly registry.get     'content-type': 'application/json',
+31 silly registry.get     'cache-control': 'max-age=60',
+31 silly registry.get     'content-length': '919',
+31 silly registry.get     'accept-ranges': 'bytes',
+31 silly registry.get     via: '1.1 varnish',
+31 silly registry.get     age: '6251',
+31 silly registry.get     'x-served-by': 'cache-lcy1126-LCY',
+31 silly registry.get     'x-cache': 'HIT',
+31 silly registry.get     'x-cache-hits': '1',
+31 silly registry.get     'x-timer': 'S1408087387.428698,VS0,VE158',
+31 silly registry.get     vary: 'Accept',
+31 silly registry.get     'keep-alive': 'timeout=10, max=50',
+31 silly registry.get     connection: 'Keep-Alive' } ]
+32 silly addNameRange number 2 { name: 'http', range: '>=0.10.0-0 <0.11.0-0', hasData: true }
+33 silly addNameRange versions [ 'http', [ '0.0.0' ] ]
+34 silly lockFile d6200f3a-http-0-10-x http@0.10.x
+35 silly lockFile d6200f3a-http-0-10-x http@0.10.x
+36 error notarget No compatible version found: http@'>=0.10.0-0 <0.11.0-0'
+36 error notarget Valid install targets:
+36 error notarget ["0.0.0"]
+36 error notarget
+36 error notarget This is most likely not a problem with npm itself.
+36 error notarget In most cases you or one of your dependencies are requesting
+36 error notarget a package version that doesn't exist.
+37 error System Windows_NT 6.1.7601
+38 error command "c:\\Program Files\\nodejs\\node.exe" "c:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "-d"
+39 error cwd c:\workspace\msm-visualisation
+40 error node -v v0.10.30
+41 error npm -v 1.4.21
+42 error code ETARGET
+43 verbose exit [ 1, true ]
