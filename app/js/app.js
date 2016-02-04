@@ -2,7 +2,7 @@
 
 
 // Declare app level module which depends on filters, and services
-angular.module('rsViz', ['rsViz.filters', 'rsViz.services', 'rsViz.directives', 'rsViz.controllers', 'ngCookies', 'ngRoute', 'ui.bootstrap']).
+angular.module('rsViz', ['rsViz.filters', 'rsViz.services', 'rsViz.directives', 'rsViz.controllers', 'ngRoute', 'ui.bootstrap']).
   config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/tabular', {templateUrl: 'partials/partial1.html', controller: 'TabularController'});
     $routeProvider.when('/tabular', {templateUrl: 'partials/partial1.html', controller: 'TabularController'});

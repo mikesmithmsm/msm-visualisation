@@ -1,29 +1,41 @@
 <div ng-show="myData.currentDeployment.deployment == null">
-  <div>
-    <table class="table table-striped table-bordered">
-      <thead>
-        <tr>
-          <th class="span5">Name</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr ng-repeat="deployment in myData.deploymentList | filter:filterText">
-          <td class="text-left span5"><a ng-click="setCurrentDeployment(deployment.name)">{{deployment.name}}</a></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+
+  <tabset class="nav-pills">
+      <tab ng-repeat="environment in myData.environments" heading="{{environment}}" class="env-heading">
+        <div class="tab-pane">
+          <table class="table table-striped table-bordered">
+            <tbody>
+              <tr ng-repeat="deployment in myData.deploymentList | filter:environment">
+                <td class="text-left span5"><a ng-click="setCurrentDeployment(deployment.name)">{{deployment.name}}</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </tab>
+  </tabset>
+
 </div>
 
 
 <div ng-show="myData.currentDeployment.deployment != null">
-  <a ng-click="showAll()">&laquo Back</a>
-  <h4>{{myData.currentDeployment.deployment.name}}
 
+
+  <div class="info-panel">
+
+
+    <span class="deployment-heading">{{myData.currentDeployment.deployment.name}}</span>
+
+    <button class="btn btn-primary" type="button">
+      Instances <span class="badge">{{myData.currentDeployment.instances.length}}</span>
+    </button>
+    <button class="btn" type="button" ng-click="showAll()">
+      back
+    </button>
+  </div>
   <tabset>
 
     <tab heading="Servers" ng-if="myData.currentDeployment.servers.length > 0">
-      <div id="servers">
+      <div id="servers tab-pane">
         <table class="table table-striped table-bordered">
           <thead>
             <tr>

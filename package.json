@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "http-proxy": "0.8.x",
-    "connect": "2.3.x"
+    "connect": "3.4.x",
+    "requestify": "0.1.x",
+    "connect-static": "1.5.2"
   }
 }

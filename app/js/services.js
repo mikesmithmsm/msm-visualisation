@@ -1,14 +1,12 @@
 'use strict';
 
 angular.module('rsViz.services', ['ngResource'])
+  .factory('Environments', function($resource) {
+    return $resource('/environments', { isArray: false })
+  })
   .factory('RightScale', function($resource){
     return $resource('/api/:path',
       {path:    '@path' }, {
-        login:   {
-          method: 'POST',
-          params: {path: 'session', account_href: '/api/accounts/70082', email: '@email', password: '@password', api_version: 1.5},
-          isArray: false
-        },
         deployments:   {
           method: 'GET',
           params:  {path: 'deployments.json'},

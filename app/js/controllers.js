@@ -1,13 +1,14 @@
 'use strict';
 
 angular.module('rsViz.controllers', [])
-  .controller('TabularController', ['$scope', 'RightScale', 'RightScaleDeployment', 'RightScaleInstances','$filter', '$modal', function($scope, RightScale, RightScaleDeployment, RightScaleInstances, $filter, $modal) {
+  .controller('TabularController', ['$scope', 'Environments', 'RightScale', 'RightScaleDeployment', 'RightScaleInstances','$filter', function($scope, Environments, RightScale, RightScaleDeployment, RightScaleInstances, $filter) {
 
     var $jq = jQuery.noConflict();
 
     $scope.myData = {
       currentDeployment: {},
-      deploymentList: []
+      deploymentList: [],
+      environments: []
     };
 
     $scope.init = function() {
@@ -16,6 +17,10 @@ angular.module('rsViz.controllers', [])
       },
       function(response) {
          $scope.login();
+      });
+
+      Environments.get({}, function(data) {
+        $scope.myData.environments = data.environments;
       });
     }
 
